@@ -20,15 +20,17 @@ filenames.forEach(function (filename) {
         var NER = csv[row].NER;
 
         for (var i = 0; i < NER.length; i++) {
+            score = 1 / (NER.length); 
+            score = score.toFixed(3); // trunactes it to 3 decimal places
             if (obj[NER[i]]) {
-                obj[NER[i]].push(row); // If ingredient is a title in obj, add recipe to obj's part
-            
+                obj[NER[i]].push([row,score]); // If ingredient is a title in obj, add recipe to obj's part
+
             }
             else {
-                obj[NER[i]] = [row]; // If ingredient is not a title in obj, add ingredient as title and recipe as value
+                obj[NER[i]] = [[row,score]]; // If ingredient is not a title in obj, add ingredient as title and recipe as value
             }
         }
-       
+
     });
 
 

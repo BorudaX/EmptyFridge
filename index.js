@@ -2,6 +2,7 @@ var source = "https://raw.githubusercontent.com/Borudagaming/EmptyFridge/main/da
 var resultlimit = 10;
 var currentPage = 0;
 var ingredients = [];
+var contents;
 var results = {};
 var sorted;
 
@@ -10,6 +11,13 @@ function loadData() {
         .then(response => response.json())
         .then(res_data => {
             ingredients = res_data;
+        });
+
+
+    fetch(source + "RecipeToOriginFile.json")
+        .then(response => response.json())
+        .then(res_data => {
+            contents = res_data;
         });
 }
 
@@ -75,7 +83,7 @@ function createRecipe(recipe) {
     a.classList.add("h6");
     a.classList.add("text-decoration-none");
     a.classList.add("text-truncate");
-    a.href = "";
+    a.href = "https://borudagaming.github.io/EmptyFridge/detail.html?r=" + recipe[0] + "&p=" + contents[recipe[0]];
     a.innerText = recipe[0];
 
     div4.appendChild(a);
@@ -152,9 +160,8 @@ function addRecipes(tags) {
     });
 
     sorted = Object.keys(results).sort(function (a, b) {
-        return Number(results[b]) - Number(results[a]);
+        return results[b] - results[a];
     });
-
 
     expandResults();
 }
@@ -218,8 +225,6 @@ function addFooter() {
 
     return div;
 }
-
-
 
 function percentageToDegrees(percentage) {
     return percentage / 100 * 360;

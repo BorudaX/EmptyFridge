@@ -161,9 +161,8 @@ function addRecipes(tags) {
     });
 
     sorted = Object.keys(results).sort(function (a, b) {
-        return Number(results[b]) - Number(results[a]);
+        return results[b] - results[a];
     });
-
 
     expandResults();
 }
@@ -227,8 +226,6 @@ function addFooter() {
 
     return div;
 }
-
-
 
 function percentageToDegrees(percentage) {
     return percentage / 100 * 360;

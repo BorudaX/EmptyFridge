@@ -2,6 +2,7 @@ var source = "https://raw.githubusercontent.com/Borudagaming/EmptyFridge/main/da
 var resultlimit = 10;
 var currentPage = 0;
 var ingredients = [];
+var contents;
 var results = {};
 var sorted;
 
@@ -11,6 +12,14 @@ function loadData() {
         .then(res_data => {
             ingredients = res_data;
         });
+
+    function loadContents() {
+        fetch(source + "RecipeToOriginFile.json")
+            .then(response => response.json())
+            .then(res_data => {
+                contents = res_data;
+            });
+    }
 }
 
 var input = document.getElementById("search");

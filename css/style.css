@@ -1459,8 +1459,8 @@ pre code {
   }
 
   .col-lg-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 
   .col-lg-4 {
@@ -2181,6 +2181,7 @@ pre code {
   width: 100%;
   height: calc(1.5em + 0.75rem + 2px);
   padding: 0.375rem 0.75rem;
+  margin-left: auto;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -10884,6 +10885,23 @@ h6 {
   z-index: 11;
   animation: action 1s infinite alternate;
 }
+
+.text-decoration-none {
+  display: flex;
+  height: 20px;
+  gap: 10px;
+  padding-left: 20px;
+}
+
+.logo {
+  object-fit: scale-down;
+
+  display: flex;
+  height: 50px;
+  gap: 10px;
+  padding-left: 20px;
+}
+
 
 @keyframes action {
   0% {

@@ -9570,6 +9570,11 @@ a.text-dark:hover, a.text-dark:focus {
   visibility: hidden !important;
 }
 
+
+.text-decoration-none {
+  align-items: end;
+}
+
 @media print {
   *,
   *::before,

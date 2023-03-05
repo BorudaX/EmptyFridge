@@ -52,6 +52,7 @@ expandButton.addEventListener("click", function () {
                 <div class="product-item bg-light mb-4">
                     <div class="text-center py-4">
                         <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
+                        <a class="h6" href="">Testttt</a>
                     </div>
                 </div>
             </div>

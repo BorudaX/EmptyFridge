@@ -18,8 +18,10 @@ filenames.forEach(function (filename) {
 
         // Iterate through ingredient
         var NER = csv[row].NER;
-
-        for (var i = 0; i < NER.length; i++) {
+        if (NER !== undefined) {
+            nerLength = NER.length;
+        }
+        for (var i = 0; i < nerLength; i++) {
             if (obj[NER[i]]) {
                 obj[NER[i]].push(row); // If ingredient is a title in obj, add recipe to obj's part
             

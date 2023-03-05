@@ -35,7 +35,7 @@ function createDetails(name, details) {
         ingredientsList.appendChild(createIngredientsLi(ingredients[i]));
     }
 
-    link.href = details["link"];
+    link.href = "https://" + details["link"];
 
     var directions = details["directions"];
 

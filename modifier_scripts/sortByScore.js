@@ -30,4 +30,4 @@ function compare(a, b) {
         return 0;
     }
 }
-fs.writeFileSync(dirname + "IngredientSorted" + count + ".json", JSON.stringify(obj));
+fs.writeFileSync(dirname + "Ingredient" + count + ".json", JSON.stringify(obj));

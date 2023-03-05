@@ -13,13 +13,12 @@ function loadData() {
             ingredients = res_data;
         });
 
-    function loadContents() {
-        fetch(source + "RecipeToOriginFile.json")
-            .then(response => response.json())
-            .then(res_data => {
-                contents = res_data;
-            });
-    }
+
+    fetch(source + "RecipeToOriginFile.json")
+        .then(response => response.json())
+        .then(res_data => {
+            contents = res_data;
+        });
 }
 
 var input = document.getElementById("search");

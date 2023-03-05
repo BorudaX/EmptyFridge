@@ -3,6 +3,7 @@ var resultlimit = 10;
 var currentPage = 0;
 var ingredients = [];
 var results = {};
+var sorted;
 
 function loadData() {
     fetch(source + "Ingredient0.json")
@@ -16,6 +17,7 @@ var input = document.getElementById("search");
 var search = document.getElementById("search_button");
 var recipeElement = document.getElementById("recipesList");
 var expand = document.getElementById("expand");
+var expandButton = document.getElementById("expandButton");
 var header = document.getElementById("header");
 
 loadData();
@@ -37,6 +39,11 @@ input.addEventListener("keyup", function (event) {
         event.preventDefault();
         console.log("Enter pressed");
     }
+});
+
+expandButton.addEventListener("click", function () {
+    console.log("Expand");
+    expandResults();
 });
 
 /*
@@ -98,7 +105,7 @@ function addRecipes(tags) {
         }
     });
 
-    var sorted = Object.keys(results).sort(function (a, b) {
+    sorted = Object.keys(results).sort(function (a, b) {
         return results[b] - results[a];
     });
 
@@ -110,7 +117,9 @@ function addRecipes(tags) {
 }
 
 function expandResults() {
-    for (var i = currentPage * resultlimit; i < resultlimit; i++) {
+    for (var i = currentPage * resultlimit; i < resultlimit + (currentPage * resultlimit); i++) {
         recipeElement.appendChild(createRecipe(sorted[i]));
     }
+
+    currentPage++;
 }

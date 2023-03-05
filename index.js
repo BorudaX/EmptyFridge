@@ -84,7 +84,7 @@ function createRecipe(recipe) {
     a.classList.add("h6");
     a.classList.add("text-decoration-none");
     a.classList.add("text-truncate");
-    a.href = "";
+    a.href = "https://borudagaming.github.io/EmptyFridge/detail/?r=" + recipe[0] + "&p=" + contents[recipe[0]];
     a.innerText = recipe[0];
 
     div4.appendChild(a);

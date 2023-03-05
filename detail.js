@@ -2,8 +2,11 @@ var source = "https://raw.githubusercontent.com/Borudagaming/EmptyFridge/main/da
 var contents;
 var data;
 
-var recipe = "Quick Pasta Dish";
-var dataset = "RecipeNLG_dataset_1.json";
+const queryString = window.location.search;
+const URLparams = new URLSearchParams(queryString);
+
+var recipe = URLparams.has("r") ? URLparams.get("r") : "Quick Pasta Dish";
+var dataset = URLparams.has("p") ? URLparams.get("p") : "RecipeNLG_dataset_1.json";
 
 function loadData() {
     fetch(source + dataset)

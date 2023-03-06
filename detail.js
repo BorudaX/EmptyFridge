@@ -39,8 +39,12 @@ function createDetails(name, details) {
 
     var directions = details["directions"];
 
-    for (var i = 0; i < directions.length; i++) {
-        directionsList.appendChild(createDirectionsLi(directions[i]));
+    if (typeof directions === "string") {
+        directionsList.appendChild(createDirectionsLi(directions));
+    } else {
+        for (var i = 0; i < directions.length; i++) {
+            directionsList.appendChild(createDirectionsLi(directions[i]));
+        }
     }
 }
 

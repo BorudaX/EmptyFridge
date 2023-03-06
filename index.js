@@ -151,6 +151,7 @@ function addRecipes(tags) {
                 // console.log(recipe[0] + " " + recipe[1]);
 
                 if (results[recipe[0]] != null) {
+                    console.log("Adding " + recipe[1] + " to " + recipe[0], results[recipe[0]], tag);
                     results[recipe[0]] += Number(recipe[1]);
                 } else {
                     results[recipe[0]] = Number(recipe[1]);

@@ -18,9 +18,12 @@ filenames.forEach(function (filename) {
             // row.directions[0] = row.directions[0].replace("[", "");
             // row.directions[row.directions.length - 1] = row.directions[row.directions.length - 1].replace("]", "");
 
-            csv[row].ingredients[0] = csv[row].ingredients[0].replace("[", "");
-            csv[row].ingredients[csv[row].ingredients.length - 1] = csv[row].ingredients[csv[row].ingredients.length - 1].replace("]", "");
-
+            if (csv[row].ingredients.includes("[") || csv[row].ingredients.includes("]")) {
+                console.log("Found brackets in " + row);
+                csv[row].ingredients = csv[row].ingredients.replace("[", "");
+                csv[row].ingredients = csv[row].ingredients.replace("]", "");
+                console.log(csv[row].ingredients);
+            }
             // delete row.source;
             // delete row.i;
         });
